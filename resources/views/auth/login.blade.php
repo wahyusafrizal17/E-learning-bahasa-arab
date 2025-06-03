@@ -38,8 +38,8 @@
             <div class="content-body">
                 <div class="auth-wrapper auth-cover">
                     <div class="auth-inner row m-0">
-                        <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
-                            <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="../../../app-assets/images/pages/login-v2.svg" alt="Login V2" /></div>
+                        <div class="d-none d-lg-flex col-lg-8 align-items-center p-5" style="background-image: url('{{ asset('website/images/home.jpg') }}');background-size: cover;background-repeat: no-repeat;">
+                            <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"></div>
                         </div>
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">

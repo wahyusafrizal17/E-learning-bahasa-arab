@@ -2,7 +2,7 @@
 @section('title','Manage Slider Image')
 @section('content')
 
-    <div class="untree_co-hero overlay" style="background-image: url('https://images.squarespace-cdn.com/content/v1/637d34f0f3da94257002b695/fd82a023-72c9-4ce0-a169-b698cbfd61b7/image-asset.jpg');">
+    <div class="untree_co-hero overlay" style="background-image: url('{{ asset('website/images/login.jpg') }}');">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-12">
