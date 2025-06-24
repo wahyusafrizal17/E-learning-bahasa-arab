@@ -78,12 +78,14 @@
                             <span class="menu-title text-truncate" data-i18n="Modal Examples">Materi</span>
                         </a>
                     </li>
+                    @if(Auth::user()->level == 'Admin')
                     <li class="nav-item {!!(Request::is('users*')) ? ' active' : '' !!}">
                         <a class="d-flex align-items-center" href="{{ route('users.index') }}">
                             <i data-feather="users"></i>
                             <span class="menu-title text-truncate" data-i18n="Modal Examples">User</span>
                         </a>
                     </li>
+                    @endif
                     {{-- <li class=" nav-item">
                         <a class="d-flex align-items-center" href="#">
                             <i data-feather="user"></i>
