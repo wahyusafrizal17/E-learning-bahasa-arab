@@ -11,5 +11,13 @@ class Materi extends Model
 
     protected $table = 'materi';
 
-    protected $fillable = ['nama_materi', 'materi', 'banner'];
+    protected $fillable = [
+        'nama_materi', 'materi', 'banner', 'deskripsi', 'tingkat_kesulitan',
+        'kategori', 'kelas_id', 'urutan', 'status'
+    ];
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
 }

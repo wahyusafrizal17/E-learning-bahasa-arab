@@ -33,13 +33,13 @@ class HomeController extends Controller
 
     public function materi()
     {
-        $data['materi'] = Materi::paginate(6);
+        $data['materi'] = Materi::with('kelas')->where('status', 'Aktif')->orderBy('urutan')->paginate(6);
         return view('website.materi', $data);
     }
 
     public function detail($id)
     {
-        $data['materi'] = Materi::find($id);
+        $data['materi'] = Materi::with('kelas')->find($id);
         return view('website.detail', $data);
     }
 

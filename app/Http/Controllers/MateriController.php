@@ -16,7 +16,7 @@ class MateriController extends Controller
      */
     public function index()
     {
-        $data['model'] = Materi::all();
+        $data['model'] = Materi::with('kelas')->orderBy('urutan')->get();
 
         return view('materi.index', $data);
     }
@@ -28,7 +28,8 @@ class MateriController extends Controller
      */
     public function create()
     {
-        return view('materi.create');
+        $data['kelas'] = \App\Models\Kelas::where('status', 'Aktif')->get();
+        return view('materi.create', $data);
     }
 
     /**
@@ -73,6 +74,7 @@ class MateriController extends Controller
     public function edit($id)
     {
         $data['model'] = Materi::find($id);
+        $data['kelas'] = \App\Models\Kelas::where('status', 'Aktif')->get();
         return view('materi.edit', $data);
     }
 

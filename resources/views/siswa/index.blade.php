@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Manage Slider Image')
+@section('title','Data Siswa')
 @section('content')
 
     <!-- BEGIN: Content-->
@@ -11,10 +11,10 @@
             <div class="content-header-left col-md-9 col-12 mb-1">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Materi</h2>
+                        <h2 class="content-header-title float-start mb-0">Data Siswa</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('materi.index') }}">Materi</a>
+                                <li class="breadcrumb-item"><a href="{{ route('siswa.index') }}">Siswa</a>
                                 </li>
                                 <li class="breadcrumb-item active">index
                                 </li>
@@ -31,9 +31,9 @@
                      <div class="col-md-12">
                         <div class="card">
                            <div class="card-header">
-                              <h4 class="card-title">Data Materi</h4>
-                              <a href="{{ route('materi.create') }}" class="btn btn-primary btn-sm">
-                                 <i class="fa fa-plus"></i> Tambah
+                              <h4 class="card-title">Data Siswa</h4>
+                              <a href="{{ route('siswa.create') }}" class="btn btn-primary btn-sm">
+                                 <i class="fa fa-plus"></i> Tambah Siswa
                               </a>
                           </div>
                            <div class="card-body">
@@ -42,37 +42,41 @@
                                     <thead>
                                        <tr>
                                           <th style="width: 5%">No</th>
-                                          <th>Nama Materi</th>
-                                          <th>Kategori</th>
-                                          <th>Tingkat</th>
-                                          <th>Kelas</th>
-                                          <th>Status</th>
-                                          <th>Banner</th>
-                                          <th style="width: 15%" class="text-center">Action</th>
+                                          <th>Foto</th>
+                                          <th>Nama Lengkap</th>
+                                          <th>NIS</th>
+                                          <th>NISN</th>
+                                          <th>Jenis Kelamin</th>
+                                          <th>No Telepon</th>
+                                          <th style="width: 20%" class="text-center">Action</th>
                                        </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($model as $row)
                                        <tr>
                                           <td>{{ $loop->iteration }}</td>
-                                          <td>{{ $row->nama_materi }}</td>
-                                          <td><span class="badge bg-info">{{ $row->kategori }}</span></td>
-                                          <td><span class="badge bg-primary">{{ $row->tingkat_kesulitan }}</span></td>
-                                          <td>{{ $row->kelas->nama_kelas ?? '-' }}</td>
                                           <td>
-                                              @if($row->status == 'Aktif')
-                                                  <span class="badge bg-success">{{ $row->status }}</span>
-                                              @elseif($row->status == 'Draft')
-                                                  <span class="badge bg-warning">{{ $row->status }}</span>
-                                              @else
-                                                  <span class="badge bg-danger">{{ $row->status }}</span>
-                                              @endif
+                                            @if($row->foto)
+                                                <img src="{{ asset('foto-siswa/'.$row->foto) }}" alt="Foto Siswa" width="50" height="50" style="border-radius: 50%; object-fit: cover;">
+                                            @else
+                                                <img src="{{ asset('app-assets/images/avatars/1.png') }}" alt="Default Avatar" width="50" height="50" style="border-radius: 50%; object-fit: cover;">
+                                            @endif
                                           </td>
-                                          <td><img src="{{ asset('banner/'.$row->banner) }}" alt="" width="50%"></td>
+                                          <td>{{ $row->nama_lengkap }}</td>
+                                          <td>{{ $row->nis }}</td>
+                                          <td>{{ $row->nisn }}</td>
+                                          <td>{{ $row->jenis_kelamin }}</td>
+                                          <td>{{ $row->no_telepon }}</td>
                                          <td class="text-center">
                                              <div class="form-button-action">
-                                                <a href="{{ route('materi.edit',[$row->id]) }}" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-sm" data-original-title="Edit">
+                                                <a href="{{ route('siswa.show',[$row->id]) }}" data-toggle="tooltip" title="" class="btn btn-link btn-info btn-sm" data-original-title="Detail">
+                                                   <i data-feather='eye'></i>
+                                                </a>
+                                                <a href="{{ route('siswa.edit',[$row->id]) }}" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-sm" data-original-title="Edit">
                                                    <i data-feather='edit'></i>
+                                                </a>
+                                                <a href="{{ route('siswa.kelas',[$row->id]) }}" data-toggle="tooltip" title="" class="btn btn-link btn-warning btn-sm" data-original-title="Kelola Kelas">
+                                                   <i data-feather='book'></i>
                                                 </a>
                                                 <button type="button" class="btn btn-link btn-danger btn-sm delete" data-id="{{ $row->id }}">
                                                   <i data-feather='trash-2'></i>
@@ -107,7 +111,7 @@ $(document).ready(function() {
       var id = $(this).data('id'); 
       swal({
          title: 'Apakah kamu yakin ?',
-         text: "Data akan terhapus secara permanen !",
+         text: "Data siswa akan terhapus secara permanen !",
          type: 'warning',
          icon: 'warning',
          buttons:{
@@ -123,7 +127,7 @@ $(document).ready(function() {
       }).then((Delete) => {
          if (Delete) {
             $.ajax({
-               url: '{{ route('materi.delete') }}',
+               url: '{{ route('siswa.delete') }}',
                method: 'post',
                cache: false,
                data: {
@@ -131,7 +135,7 @@ $(document).ready(function() {
                   "id" :id
                },
                success: function(data){
-                  swal("Good job!", "You clicked the button!", {
+                  swal("Berhasil!", "Data siswa berhasil dihapus!", {
                      icon : "success",
                      buttons: {        			
                         confirm: {
@@ -151,4 +155,4 @@ $(document).ready(function() {
 });
 
 </script>
-@endpush
+@endpush 
