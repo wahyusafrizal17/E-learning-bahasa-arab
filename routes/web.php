@@ -48,4 +48,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('kelas/delete', 'App\Http\Controllers\KelasController@delete')->name('kelas.delete');
     Route::post('kelas/{id}/add-siswa', 'App\Http\Controllers\KelasController@addSiswa')->name('kelas.addSiswa');
     Route::post('kelas/{id}/remove-siswa', 'App\Http\Controllers\KelasController@removeSiswa')->name('kelas.removeSiswa');
+
+    Route::resource('mata-pelajaran', 'App\Http\Controllers\MataPelajaranController');
 });

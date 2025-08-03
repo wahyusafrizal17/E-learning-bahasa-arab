@@ -21,7 +21,6 @@ class Guru extends Model
         'alamat',
         'no_telepon',
         'email',
-        'bidang_studi',
         'pendidikan_terakhir',
         'foto'
     ];
@@ -32,5 +31,13 @@ class Guru extends Model
     public function kelas()
     {
         return $this->hasMany(Kelas::class);
+    }
+
+    /**
+     * Get the mata pelajaran for the guru.
+     */
+    public function mataPelajaran()
+    {
+        return $this->hasMany(MataPelajaran::class);
     }
 } 

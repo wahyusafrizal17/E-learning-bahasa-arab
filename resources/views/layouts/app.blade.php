@@ -90,6 +90,12 @@
                             <span class="menu-title text-truncate" data-i18n="Modal Examples">Data Guru</span>
                         </a>
                     </li>
+                    <li class="nav-item {!!(Request::is('mata-pelajaran*')) ? ' active' : '' !!}">
+                        <a class="d-flex align-items-center" href="{{ route('mata-pelajaran.index') }}">
+                            <i data-feather="book-open"></i>
+                            <span class="menu-title text-truncate" data-i18n="Modal Examples">Mata Pelajaran</span>
+                        </a>
+                    </li>
                     <li class="nav-item {!!(Request::is('kelas*')) ? ' active' : '' !!}">
                         <a class="d-flex align-items-center" href="{{ route('kelas.index') }}">
                             <i data-feather="book"></i>

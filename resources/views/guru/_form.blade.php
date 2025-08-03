@@ -51,11 +51,7 @@
                 @if ($errors->has('email')) <span class="help-block" style="color:red">{{ $errors->first('email') }}</span> @endif
             </div>
 
-            <div class="form-group mt-2">
-                <label>Bidang Studi <span class="text-danger">*</span></label>
-                {{ Form::text('bidang_studi',null,['class'=>'form-control','placeholder'=>'Masukkan bidang studi'])}}
-                @if ($errors->has('bidang_studi')) <span class="help-block" style="color:red">{{ $errors->first('bidang_studi') }}</span> @endif
-            </div>
+
 
             <div class="form-group mt-2">
                 <label>Pendidikan Terakhir <span class="text-danger">*</span></label>
