@@ -25,7 +25,6 @@ class GuruTableSeeder extends Seeder
                 'alamat' => 'Jl. Sudirman No. 123, Jakarta Pusat',
                 'no_telepon' => '081234567890',
                 'email' => 'ahmad.fauzi@email.com',
-                'bidang_studi' => 'Bahasa Arab',
                 'pendidikan_terakhir' => 'S2',
                 'foto' => null
             ],
@@ -39,7 +38,6 @@ class GuruTableSeeder extends Seeder
                 'alamat' => 'Jl. Asia Afrika No. 45, Bandung',
                 'no_telepon' => '081234567891',
                 'email' => 'siti.nurhaliza@email.com',
-                'bidang_studi' => 'Bahasa Inggris',
                 'pendidikan_terakhir' => 'S1',
                 'foto' => null
             ],
@@ -53,7 +51,6 @@ class GuruTableSeeder extends Seeder
                 'alamat' => 'Jl. Tunjungan No. 67, Surabaya',
                 'no_telepon' => '081234567892',
                 'email' => 'muhammad.rizki@email.com',
-                'bidang_studi' => 'Matematika',
                 'pendidikan_terakhir' => 'S2',
                 'foto' => null
             ],
@@ -67,7 +64,6 @@ class GuruTableSeeder extends Seeder
                 'alamat' => 'Jl. Malioboro No. 89, Yogyakarta',
                 'no_telepon' => '081234567893',
                 'email' => 'nurul.hidayah@email.com',
-                'bidang_studi' => 'Fisika',
                 'pendidikan_terakhir' => 'S1',
                 'foto' => null
             ],
@@ -81,7 +77,6 @@ class GuruTableSeeder extends Seeder
                 'alamat' => 'Jl. Merdeka No. 12, Medan',
                 'no_telepon' => '081234567894',
                 'email' => 'abdul.rahman@email.com',
-                'bidang_studi' => 'Kimia',
                 'pendidikan_terakhir' => 'S2',
                 'foto' => null
             ]
