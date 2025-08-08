@@ -72,14 +72,13 @@
             <div class="shadow-bottom"></div>
             <div class="main-menu-content">
                 <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                    @if(Auth::user()->level == 'Admin')
                     <li class="nav-item {!!(Request::is('materi*')) ? ' active' : '' !!}">
                         <a class="d-flex align-items-center" href="{{ route('materi.index') }}">
                             <i data-feather="file"></i>
                             <span class="menu-title text-truncate" data-i18n="Modal Examples">Materi</span>
                         </a>
                     </li>
-                    @endif
+                    
                     <li class="nav-item {!!(Request::is('siswa*')) ? ' active' : '' !!}">
                         <a class="d-flex align-items-center" href="{{ route('siswa.index') }}">
                             <i data-feather="user-check"></i>
@@ -99,14 +98,12 @@
                             <span class="menu-title text-truncate" data-i18n="Modal Examples">Mata Pelajaran</span>
                         </a>
                     </li>
-                    @endif
                     <li class="nav-item {!!(Request::is('kelas*')) ? ' active' : '' !!}">
                         <a class="d-flex align-items-center" href="{{ route('kelas.index') }}">
                             <i data-feather="book"></i>
                             <span class="menu-title text-truncate" data-i18n="Modal Examples">Data Kelas</span>
                         </a>
                     </li>
-                    @if(Auth::user()->level == 'Admin')
                     <li class="nav-item {!!(Request::is('users*')) ? ' active' : '' !!}">
                         <a class="d-flex align-items-center" href="{{ route('users.index') }}">
                             <i data-feather="users"></i>
