@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         if(\Auth::check() && in_array(\Auth::user()->level, ['Admin', 'Guru'])){
-            return redirect('materi');
+            return redirect('siswa');
         }else{
             return view('website.welcome');
         }

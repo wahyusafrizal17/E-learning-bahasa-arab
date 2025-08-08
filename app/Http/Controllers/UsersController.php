@@ -96,9 +96,13 @@ class UsersController extends Controller
             $request->file('foto')->move($path, $fileName);
             $input['foto'] = $fileName;
         }
-        if($request->password != '')
-        {
-        $input['password'] = Hash::make($request->password);
+        
+        // Handle password update - only update if password is provided
+        if($request->filled('password')) {
+            $input['password'] = Hash::make($request->password);
+        } else {
+            // Remove password from input array if it's empty
+            unset($input['password']);
         }
         
         $model->update($input);
